@@ -39,6 +39,12 @@
         
     }];
     
+    void(^devowelizer)(id, NSInteger, BOOL *);
+    
+    devowelizer = ^(id string, NSInteger i, BOOL *stop){
+        
+    };
+    
     
     //分页初始页为0
     self.pageControl.currentPage = 0;

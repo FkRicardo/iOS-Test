@@ -28,11 +28,26 @@
 
 - (void)requestImage
 {
-    NSURL *imageURL = [NSURL URLWithString:@"http://photo.hanyu.iciba.com/upload/encyclopedia_2/53/a0/bk_53a00b172b79ece05834bb36e6229112_gkXzjF.jpg"];
-    //网络请求的载体
-    NSURLRequest *request = [NSURLRequest requestWithURL:imageURL];
-    //发网络请求
-    [NSURLConnection connectionWithRequest:request delegate:self];
+//    NSURL *imageURL = [NSURL URLWithString:@"http://photo.hanyu.iciba.com/upload/encyclopedia_2/53/a0/bk_53a00b172b79ece05834bb36e6229112_gkXzjF.jpg"];
+//    //网络请求的载体
+//    NSURLRequest *request = [NSURLRequest requestWithURL:imageURL];
+//    //发网络请求
+//    [NSURLConnection connectionWithRequest:request delegate:self];
+//    
+//    self.receiveData = [[NSMutableData alloc] init];
+
+//    NSURL *url = [NSURL URLWithString:@"http://photo.hanyu.iciba.com/upload/encyclopedia_2/53/a0/bk_53a00b172b79ece05834bb36e6229112_gkXzjF.jpg"];
+//    
+//    NSURLRequest *request = [NSURLRequest requestWithURL:url];
+//    
+//    [NSURLConnection connectionWithRequest:request delegate:self];
+
+    
+    NSURL *url = [NSURL URLWithString:@"http://photo.hanyu.iciba.com/upload/encyclopedia_2/53/a0/bk_53a00b172b79ece05834bb36e6229112_gkXzjF.jpg"];
+    
+    NSURLRequest *request = [NSURLRequest requestWithURL:url];
+    
+    NSURLConnection *connect = [NSURLConnection connectionWithRequest:request delegate:self];
     
     self.receiveData = [[NSMutableData alloc] init];
 }
@@ -44,7 +59,7 @@
 
 - (void)connectionDidFinishLoading:(NSURLConnection *)connection
 {
-    [self.imageView setImage:[UIImage imageWithData:self.receiveData]];
+    [self.imageView setImage:[UIImage imageWithData:self.receiveData scale:0.5f]];
 }
 
 - (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error
